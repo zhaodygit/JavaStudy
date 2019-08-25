@@ -16,6 +16,21 @@ public class Student {
 	private Date birthday;
 	private String hobby;
 	private String info;
+	
+	 
+	
+	public Student() {
+		super();
+	}
+	public Student(String sname, String gender, String phone, Date birthday, String hobby, String info) {
+		super();
+		this.sname = sname;
+		this.gender = gender;
+		this.phone = phone;
+		this.birthday = birthday;
+		this.hobby = hobby;
+		this.info = info;
+	}
 	public int getId() {
 		return id;
 	}
@@ -57,6 +72,11 @@ public class Student {
 	}
 	public void setInfo(String info) {
 		this.info = info;
+	}
+	@Override
+	public String toString() {
+		return "Student [sname=" + sname + ", gender=" + gender + ", phone=" + phone + ", birthday=" + birthday
+				+ ", hobby=" + hobby + ", info=" + info + "]";
 	}
 	
 	

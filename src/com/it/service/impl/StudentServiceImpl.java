@@ -17,4 +17,16 @@ public class StudentServiceImpl implements StudentService {
 		return dao.findAll();
 	}
 
+	@Override
+	public int AddStudent(Student student) throws SQLException {
+		StudentDao dao = new StudentDaoImpl();
+		return dao.AddStudent(student);
+	}
+
+	@Override
+	public int DelStudent(int id) throws SQLException {
+		StudentDao dao = new StudentDaoImpl();
+		return dao.DelStudent(id);
+	}
+
 }

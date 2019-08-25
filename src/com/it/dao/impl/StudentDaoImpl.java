@@ -21,4 +21,26 @@ public class StudentDaoImpl implements StudentDao{
 		return list;
 	}
 
+	@Override
+	public int AddStudent(Student student) throws SQLException {
+		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
+		String sql = "insert into stu values(null,?,?,?,?,?,?)";
+		System.out.println(student);
+		return runner.update(sql,
+				student.getSname(),
+				student.getGender(),
+				student.getPhone(),
+				student.getBirthday(),
+				student.getHobby(),
+				student.getInfo()
+				);
+	}
+
+	@Override
+	public int DelStudent(int id) throws SQLException {
+		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
+		
+		return runner.update("delete from stu where id = ?", id);
+	}
+
 }
