@@ -46,7 +46,10 @@
 				<td>${stu.birthday }</td>
 				<td>${stu.hobby }</td>
 				<td>${stu.info }</td>
-				<td><a href="">更新 </a><a href="javascript:void(0)" onclick="doDelete(${stu.id})">删除</a></td>
+				<td>
+					<a href="EditServlet?id=${stu.id}">更新 </a>
+					<a href="javascript:void(0)" onclick="doDelete(${stu.id})">删除</a>
+				</td>
 			</tr>
 		</c:forEach>
 		

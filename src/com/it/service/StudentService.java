@@ -15,6 +15,13 @@ public interface StudentService {
 	public List<Student> findAll() throws SQLException; 
 
 	/**
+	 * 通过id查询学生实例
+	 * @param id
+	 * @return
+	 * @throws SQLException
+	 */
+	Student findStudentById(int id) throws SQLException;
+	/**
 	 * 添加学生
 	 * @param student
 	 * @return
@@ -29,4 +36,11 @@ public interface StudentService {
 	 * @throws SQLException
 	 */
 	int DelStudent(int id) throws SQLException;
+	
+	/**
+	 * 更新学生
+	 * @param student
+	 * @throws SQLException
+	 */
+	void updateStudent(Student student) throws SQLException;
 }

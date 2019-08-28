@@ -1,10 +1,10 @@
 package com.it.dao.impl;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.it.dao.StudentDao;
@@ -41,6 +41,32 @@ public class StudentDaoImpl implements StudentDao{
 		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
 		
 		return runner.update("delete from stu where id = ?", id);
+	}
+
+	@Override
+	public Student findStudentById(int id) throws SQLException {
+		
+		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
+		return runner.query("select * from stu where id=?", new BeanHandler<Student>(Student.class), id);
+	}
+
+	@Override
+	public void updateStudent(Student student) throws SQLException {
+		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
+		runner.update("update stu set sname=?,"
+				+ "gender=?,"
+				+ "phone=?,"
+				+ "birthday=?,"
+				+ "hobby=?,"
+				+ "info=? "
+				+ "where id = ?", 
+				student.getSname(),
+				student.getGender(),
+				student.getPhone(),
+				student.getBirthday(),
+				student.getHobby(),
+				student.getInfo(),
+				student.getId());
 	}
 
 }

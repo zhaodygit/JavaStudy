@@ -29,4 +29,16 @@ public class StudentServiceImpl implements StudentService {
 		return dao.DelStudent(id);
 	}
 
+	@Override
+	public Student findStudentById(int id) throws SQLException {
+		StudentDao dao = new StudentDaoImpl();
+		return dao.findStudentById(id);
+	}
+
+	@Override
+	public void updateStudent(Student student) throws SQLException {
+		StudentDao dao = new StudentDaoImpl();
+		dao.updateStudent(student);
+	}
+
 }

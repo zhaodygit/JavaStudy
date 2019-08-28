@@ -27,10 +27,23 @@ public interface StudentDao {
 	int AddStudent(Student student) throws SQLException;
 
 	/**
+	 * 通过id查询学生
+	 * @param id
+	 * @return
+	 */
+	Student findStudentById(int id) throws SQLException;
+	/**
 	 * 删除学生
 	 * @param id
 	 * @return
 	 * @throws SQLException
 	 */
 	int DelStudent(int id) throws SQLException;
+	
+	/**
+	 * 更新学生
+	 * @param student
+	 * @throws SQLException
+	 */
+	void updateStudent(Student student) throws SQLException;
 }
