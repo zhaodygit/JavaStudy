@@ -12,6 +12,21 @@ import com.it.domian.Student;
  */
 public interface StudentDao {
 	
+	int PAGE_SIZE = 2;  //
+	/**
+	 * 查询当前页
+	 * @return
+	 * @throws SQLException
+	 */
+	List<Student> findStudentByPage(int currentPage) throws SQLException;
+	
+	/**
+	 * 总记录数
+	 * @return
+	 * @throws SQLException
+	 */
+	int findCount() throws SQLException;
+	
 	/**
 	 * 查询所有的学生
 	 * @return
@@ -46,4 +61,13 @@ public interface StudentDao {
 	 * @throws SQLException
 	 */
 	void updateStudent(Student student) throws SQLException;
+
+	/**
+	 * 学生查询
+	 * @param sname
+	 * @param sgender
+	 * @return
+	 * @throws SQLException
+	 */
+	List<Student> searchStudent(String sname, String sgender) throws SQLException;
 }

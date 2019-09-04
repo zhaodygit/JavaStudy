@@ -3,10 +3,18 @@ package com.it.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.it.domian.PageBean;
 import com.it.domian.Student;
 
 public interface StudentService {
 
+	/**
+	 * 查询当前页
+	 * @return
+	 * @throws SQLException
+	 */
+	PageBean findStudentByPage(int currentPage) throws SQLException;
+	
 	/**
 	 * 查询所有学生
 	 * @return
@@ -43,4 +51,13 @@ public interface StudentService {
 	 * @throws SQLException
 	 */
 	void updateStudent(Student student) throws SQLException;
+
+	/**
+	 * 学生查询
+	 * @param sname
+	 * @param sgender
+	 * @return
+	 * @throws SQLException
+	 */
+	List<Student> searchStudent(String sname, String sgender) throws SQLException;
 }
